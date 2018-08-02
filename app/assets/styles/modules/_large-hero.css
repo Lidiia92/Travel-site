@@ -1,0 +1,54 @@
+.large-hero {
+    position: relative; /* 1 */
+    
+    &__text-content {
+        position: absolute; /* 1 */
+        top: 50%; /* 1--a */
+        transform: translateY(-50%); /* 1--c*/
+        left: 0; /* 1--a */
+        width: 100%; /* 1--b */
+        text-align: center; /* 1--b */
+    
+    }
+    
+    &__title{
+        font-weight: 300;
+        color: $mainBlue;
+        font-size: 4.8rem;
+        margin: 0;
+    }
+    
+    &__subtitle {
+        font-weight: 300;
+        color: $mainBlue;
+        font-size: 2.9rem;
+        margin: 0;
+    }
+    
+    &__description {
+        color: #FFF;
+        font-size: 1.875rem;
+        font-weight: 100;
+        text-shadow: 2px 2px 0 rgba(0, 0, 0, .1); /* 2--a */
+        max-width: 30rem;  /* 2--b */
+        margin-left: auto; /* 2--c */
+        margin-right: auto; /* 2--c */
+    }
+}
+
+
+/*
+1. Relative: an element’s original position remains in the flow of the document, just like the static value. But now left/right/top/bottom/z-index will work. The positional properties “nudge” the element from the original position in that direction.
+Absolute: the element is removed from the flow of the document and other elements will behave as if it’s not even there whilst all the other positional properties will work on it.
+
+1--a) Text positioned 50% down vertically
+1--b) Text aligned in the center of the image horizontally
+1--c) pulls element 50 up of its neutrial position
+
+2.We are gonna use rem for the font-size, padding, marging. Rem is always a relative size to the root element(html element).
+So when we say size is 1.5rem, browser will take font-size of html and multiply it by 1.5
+
+2--a) rgba(0, 0, 0, .1) really transparent black
+2--b) drops text into two lines
+2--c) centers text horizontally withing the block
+*/

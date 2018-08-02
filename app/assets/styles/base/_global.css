@@ -1,0 +1,11 @@
+/* Global stylying for the body */
+body {
+    font-family: 'Roboto', sans-serif;
+    color: #333; 
+}
+
+/*All the images will fit the page without scrolling */
+img {
+    max-width: 100%;
+    height: auto;
+}
