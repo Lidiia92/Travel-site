@@ -1,0 +1,13 @@
+.wrapper {
+    padding-left: 18px;
+    padding-right: 18px;
+    max-width: 1200px;
+    margin-left: auto; /* 1 */
+    margin-right: auto; /* 1 */
+}
+
+/*
+
+1. Centers content vertically
+
+*/
