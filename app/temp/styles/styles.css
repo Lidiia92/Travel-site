@@ -367,7 +367,18 @@ img {
     max-width: 100%;
     height: auto;
 }
+* {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box; /* 1 */
+}
+/* 1. All elements on the page will be bordered box
+Border-box: Width and height values apply to the content, padding, and border. 
+
+*/
 /* We are creating a new mixin for for a larger than mobile phones screens */
+/* 1.Clearing the floating of the div with class 'row'
+
+*/
 .large-hero {
     position: relative; /* 1 */
     border-bottom: 10px solid #2f5572;
@@ -469,6 +480,7 @@ So when we say size is 1.5rem, browser will take font-size of html and multiply 
 1--a) top-bottom/left-right
 */
 .wrapper {
+    overflow: hidden; /* 2 */
     padding-left: 18px;
     padding-right: 18px;
     max-width: 1200px;
@@ -486,6 +498,7 @@ So when we say size is 1.5rem, browser will take font-size of html and multiply 
 /*
 
 1. Centers content vertically
+2. Hides the overflow of its children elements
 
 */
 .page-section {
@@ -540,4 +553,28 @@ So when we say size is 1.5rem, browser will take font-size of html and multiply 
     }
 /* 1.Centers the text horizontally 
    2. Its relative to the font sizes itself.
+*/
+.row::after { /* 1 */
+        content: "";
+        clear: both;
+        display: table;
+    }
+.row--gutters {
+        margin-right: -65px;
+    }
+.row--gutters > div { /* 1 */
+        padding-right: 65px;
+    }
+@media (min-width: 800px) {
+        .row__medium-4 {
+            float: left;
+            width: 33.33%
+        }
+        .row__medium-8 {
+            float: left;
+            width: 66.66%    
+        }
+    }
+/* 1.Selection all div children of an element with row-gutters class
+
 */

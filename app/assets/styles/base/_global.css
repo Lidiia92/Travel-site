@@ -9,3 +9,12 @@ img {
     max-width: 100%;
     height: auto;
 }
+
+* {
+    box-sizing: border-box; /* 1 */
+}
+
+/* 1. All elements on the page will be bordered box
+Border-box: Width and height values apply to the content, padding, and border. 
+
+*/

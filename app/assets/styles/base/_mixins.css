@@ -17,3 +17,16 @@
         @mixin-content;
     }
 }
+
+@define-mixin clearfix {
+    &::after { /* 1 */
+        content: "";
+        clear: both;
+        display: table;
+    }
+}
+
+
+/* 1.Clearing the floating of the div with class 'row'
+
+*/
