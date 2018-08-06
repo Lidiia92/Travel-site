@@ -483,7 +483,7 @@ So when we say size is 1.5rem, browser will take font-size of html and multiply 
     overflow: hidden; /* 2 */
     padding-left: 18px;
     padding-right: 18px;
-    max-width: 1200px;
+    max-width: 1236px; /* 3 */
     margin-left: auto; /* 1 */
     margin-right: auto;
 }
@@ -495,10 +495,19 @@ So when we say size is 1.5rem, browser will take font-size of html and multiply 
         padding-left: 0;
         padding-right: 0;
     }
+.wrapper--b-margin{
+        margin-bottom: 1rem;
+    }
+@media (min-width: 530px) {
+.wrapper--b-margin{
+            margin-bottom: 3.875rem
+    }
+    }
 /*
 
 1. Centers content vertically
 2. Hides the overflow of its children elements
+3.Because all our elements on our page are border-box type, we have to increase our max-width by padding right and left: 18 + 18
 
 */
 .page-section {
@@ -570,9 +579,16 @@ So when we say size is 1.5rem, browser will take font-size of html and multiply 
             float: left;
             width: 33.33%
         }
+        
+        .row__medium-4--larger {
+            width: 37%;
+        }
         .row__medium-8 {
             float: left;
             width: 66.66%    
+        }
+        .row__medium-8--smaller {
+            width: 63% 
         }
     }
 /* 1.Selection all div children of an element with row-gutters class
