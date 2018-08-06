@@ -473,17 +473,71 @@ So when we say size is 1.5rem, browser will take font-size of html and multiply 
     padding-right: 18px;
     max-width: 1200px;
     margin-left: auto; /* 1 */
-    margin-right: auto; /* 1 */
+    margin-right: auto;
 }
+/* 1 */
+.wrapper--medium {
+        max-width: 976px;
+    }
+.wrapper .wrapper {
+        padding-left: 0;
+        padding-right: 0;
+    }
 /*
 
 1. Centers content vertically
 
 */
 .page-section {
-    padding: 4.5rem 0;
+    padding: 1.2rem 0;
 }
+@media (min-width: 800px) {
+.page-section {
+        padding: 4.5rem 0
+}
+    }
 .page-section--blue {
         background-color: #2f5572;
         color: #FFF;
     }
+.headline {
+    font-weight: 300;
+    font-size: 1.9rem;
+    color: #2f5572; 
+}
+@media (min-width: 530px) {
+.headline {
+        font-size: 2.875rem 
+}
+    }
+.headline--centered {
+        text-align: center;
+    }
+.headline--orange {
+        color: #d59541;
+    }
+.headline--small {
+        font-size: 1.2rem;
+    }
+@media (min-width: 530px) {
+.headline--small {
+            font-size: 1.875rem
+    }
+    }
+.headline--narrow {
+        max-width: 500px;
+        margin-left: auto; /* 1 */
+        margin-right: auto; /* 1 */
+    }
+.headline--light {
+        font-weight: 100;
+    }
+.headline--b-margin-small {
+        margin-bottom: .5em; /* 2 */
+    }
+.headline--b-margin-large {
+        margin-bottom: 1.6em;
+    }
+/* 1.Centers the text horizontally 
+   2. Its relative to the font sizes itself.
+*/

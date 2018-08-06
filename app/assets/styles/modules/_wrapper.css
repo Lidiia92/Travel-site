@@ -4,6 +4,15 @@
     max-width: 1200px;
     margin-left: auto; /* 1 */
     margin-right: auto; /* 1 */
+    
+    &--medium {
+        max-width: 976px;
+    }
+    
+    .wrapper {
+        padding-left: 0;
+        padding-right: 0;
+    }
 }
 
 /*
