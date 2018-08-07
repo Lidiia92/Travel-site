@@ -1,0 +1,20 @@
+.generic-content-container {
+    
+    p {
+        line-height: 1.65; /* 1 */
+        font-size: 1rem; /* dafault, you can delete this line */
+        margin: 1.8rem 0;
+        
+        @mixin atSmall {
+            font-size: 1.125rem;
+        }
+    }
+    p a {
+        font-weight: 700;
+    }
+}
+
+/* 1. Line-height doesnt require unit of mesurment.
+
+
+*/

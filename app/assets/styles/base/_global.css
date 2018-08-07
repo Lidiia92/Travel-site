@@ -14,6 +14,10 @@ img {
     box-sizing: border-box; /* 1 */
 }
 
+a {
+    color: $mainOrange;
+}
+
 /* 1. All elements on the page will be bordered box
 Border-box: Width and height values apply to the content, padding, and border. 
 

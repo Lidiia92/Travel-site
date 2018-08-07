@@ -357,6 +357,10 @@ template {
 [hidden] {
   display: none;
 }
+/* We are creating a new mixin for for a larger than mobile phones screens */
+/* 1.Clearing the floating of the div with class 'row'
+
+*/
 /* Global stylying for the body */
 body {
     font-family: 'Roboto', sans-serif;
@@ -371,12 +375,11 @@ img {
     -webkit-box-sizing: border-box;
             box-sizing: border-box; /* 1 */
 }
+a {
+    color: #d59541;
+}
 /* 1. All elements on the page will be bordered box
 Border-box: Width and height values apply to the content, padding, and border. 
-
-*/
-/* We are creating a new mixin for for a larger than mobile phones screens */
-/* 1.Clearing the floating of the div with class 'row'
 
 */
 .large-hero {
@@ -525,11 +528,11 @@ So when we say size is 1.5rem, browser will take font-size of html and multiply 
 .headline {
     font-weight: 300;
     font-size: 1.9rem;
-    color: #2f5572; 
+    color: #2f5572;
 }
 @media (min-width: 530px) {
 .headline {
-        font-size: 2.875rem 
+        font-size: 2.875rem
 }
     }
 .headline--centered {
@@ -560,6 +563,9 @@ So when we say size is 1.5rem, browser will take font-size of html and multiply 
 .headline--b-margin-large {
         margin-bottom: 1.6em;
     }
+.headline--no-t-margin {
+        margin-top: 0;
+    }
 /* 1.Centers the text horizontally 
    2. Its relative to the font sizes itself.
 */
@@ -574,7 +580,15 @@ So when we say size is 1.5rem, browser will take font-size of html and multiply 
 .row--gutters > div { /* 1 */
         padding-right: 65px;
     }
+.row__b-margin-until-medium {
+        margin-bottom: 1rem; /* on a small screen */
+    }
 @media (min-width: 800px) {
+        .row__b-margin-until-medium {
+            margin-bottom: 0; /* on a medium screen and larger */
+        }
+    
+        
         .row__medium-4 {
             float: left;
             width: 33.33%
@@ -592,5 +606,22 @@ So when we say size is 1.5rem, browser will take font-size of html and multiply 
         }
     }
 /* 1.Selection all div children of an element with row-gutters class
+
+*/
+.generic-content-container p {
+        line-height: 1.65; /* 1 */
+        font-size: 1rem; /* dafault, you can delete this line */
+        margin: 1.8rem 0;
+    }
+@media (min-width: 530px) {
+.generic-content-container p {
+            font-size: 1.125rem
+    }
+    }
+.generic-content-container p a {
+        font-weight: 700;
+    }
+/* 1. Line-height doesnt require unit of mesurment.
+
 
 */

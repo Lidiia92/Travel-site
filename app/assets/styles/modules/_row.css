@@ -10,7 +10,16 @@
         padding-right: 65px;
     }
     
+    &__b-margin-until-medium {
+        margin-bottom: 1rem; /* on a small screen */
+    }
+    
     @mixin atMedium {
+        &__b-margin-until-medium {
+            margin-bottom: 0; /* on a medium screen and larger */
+        }
+    
+        
         &__medium-4 {
             float: left;
             width: 33.33%
