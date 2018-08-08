@@ -671,15 +671,35 @@ So when we say size is 1.5rem, browser will take font-size of html and multiply 
 */
 .feature-item {
     position: relative; /* we want icon to be sitted relatively to a parent */
-    padding-left: 98px;
     padding-bottom: 2.5rem;
 }
+@media (min-width: 530px) {
+.feature-item {
+        padding-left: 94px
+}
+    }
 .feature-item__icon {
-        position: absolute;
-        left: 0;
+        display: block;  /* for a small screen */
+        margin: 0 auto;
+    }
+/* for a small screen */
+@media (min-width: 530px) {
+.feature-item__icon {
+            position: absolute;
+            left: 0
+    }
     }
 .feature-item__title {
-        font-size: 1.875rem;
+        font-size: 1.6rem;
         font-weight: 300;
+        margin-top: .7em;
         margin-bottom: .8rem;
+        text-align: center;
+    }
+@media (min-width: 530px) {
+.feature-item__title {
+            font-size: 1.875rem;
+            text-align: left;
+            margin-top: 1em
+    }
     }
