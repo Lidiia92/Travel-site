@@ -494,6 +494,26 @@ So when we say size is 1.5rem, browser will take font-size of html and multiply 
 .wrapper--medium {
         max-width: 976px;
     }
+.wrapper--no-padding-until-medium {
+        padding-left: 0;
+        padding-right: 0;
+    }
+@media (min-width: 800px) {
+.wrapper--no-padding-until-medium {
+            padding-left: 18px;
+            padding-right: 18px
+    }
+    }
+.wrapper--no-padding-until-large {
+        padding-left: 0;
+        padding-right: 0;
+    }
+@media (min-width: 1010px) {
+.wrapper--no-padding-until-large {
+            padding-left: 18px;
+            padding-right: 18px
+    }
+    }
 .wrapper .wrapper {
         padding-left: 0;
         padding-right: 0;
@@ -521,10 +541,40 @@ So when we say size is 1.5rem, browser will take font-size of html and multiply 
         padding: 4.5rem 0
 }
     }
+.page-section--no-b-padding-until-medium {
+        padding-bottom: 0;
+    }
+@media (min-width: 800px) {
+.page-section--no-b-padding-until-medium {
+            padding-bottom: 4.5rem
+    }
+    }
+.page-section--no-b-padding-until-large {
+        padding-bottom: 0;
+    }
+@media (min-width: 1010px) {
+.page-section--no-b-padding-until-large {
+            padding-bottom: 4.5rem
+    }
+    }
 .page-section--blue {
         background-color: #2f5572;
         color: #FFF;
     }
+.page-section--testimonials {
+        background-color: #e0e6ef;
+    }
+@media (min-width: 1010px) {
+.page-section--testimonials {
+            background: url('/assets/images/testimonials-bg.jpg') top center no-repeat; /* 1 */
+            background-size: cover /* 2 */
+    }
+    }
+/*
+1. Position of the image.
+2. Covers the containing div
+
+*/
 .headline {
     font-weight: 300;
     font-size: 1.9rem;
@@ -574,17 +624,26 @@ So when we say size is 1.5rem, browser will take font-size of html and multiply 
         clear: both;
         display: table;
     }
+.row--t-padding {
+        padding-top: 80px;
+    }
 .row--gutters {
         margin-right: -65px;
     }
 .row--gutters-large {
         margin-right: -100px;
     }
+.row--gutters-small {
+        margin-right: -45px;
+    }
 .row--gutters > div { /* 1 */
         padding-right: 65px;
     }
 .row--gutters-large > div {
         padding-right: 100px;
+    }
+.row--gutters-small > div {
+        padding-right: 45px;
     }
 .row__b-margin-until-medium {
         margin-bottom: 1rem; /* on a small screen */
@@ -617,8 +676,63 @@ So when we say size is 1.5rem, browser will take font-size of html and multiply 
             width: 63% 
         }
     }
+@media (min-width: 1010px) {
+        .row__b-margin-until-large {
+            margin-bottom: 0; /* on a medium screen and larger */
+        }
+    
+        
+        .row__large-4 {
+            float: left;
+            width: 33.33%
+        }
+        
+        .row__large-4--larger {
+            width: 37%;
+        }
+        
+        .row__large-6 {
+            float: left;
+            width: 50%;
+        }
+        
+        .row__large-8 {
+            float: left;
+            width: 66.66%    
+        }
+        .row__large-8--smaller {
+            width: 63% 
+        }
+    }
+/* Begin equal height rule */
+@media (min-width: 800px) {
+.row--equal-height-at-medium {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex
+    }
+    }
+.row--equal-height-at-medium > div {
+            float: none;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex; /* 2 */
+        }
+@media (min-width: 1010px) {
+.row--equal-height-at-large {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex
+    }
+    }
+.row--equal-height-at-large > div {
+            float: none;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex; /* 2 */
+        }
 /* 1.Selection all div children of an element with row-gutters class
-
+   2. Makes columns be the same height when they are in the flex parent
 */
 .generic-content-container p {
         font-weight: 300;
@@ -651,6 +765,9 @@ So when we say size is 1.5rem, browser will take font-size of html and multiply 
 .section-title strong {
         font-weight: 500;
     }
+.section-title--blue {
+        color: #2f5572;
+    }
 .section-title__icon {
         display: block;
         margin-left: auto;
@@ -659,6 +776,8 @@ So when we say size is 1.5rem, browser will take font-size of html and multiply 
     }
 @media (min-width: 530px) {
 .section-title__icon {
+            position: relative; /* 2 */
+            top: 8px; /* 2 */
             margin-right: .5rem;
             margin-left: 0;
             margin-bottom: 0;
@@ -666,7 +785,7 @@ So when we say size is 1.5rem, browser will take font-size of html and multiply 
     }
     }
 /* 1.__icon - underscore because its an element of a block
-
+   2. Will push icon down
 
 */
 .feature-item {
@@ -703,3 +822,46 @@ So when we say size is 1.5rem, browser will take font-size of html and multiply 
             margin-top: 1em
     }
     }
+.testimonial {
+    background-color: rgba(255, 255, 255, .8);
+    padding: 0 18px 1px 18px;
+    margin-bottom: 98px;
+}
+.testimonial--last {
+        margin-bottom: 0;
+    }
+@media (min-width: 1010px) {
+.testimonial {
+        margin-bottom: 0;
+        padding: 0 1.8125rem 1px 1.8125rem
+}
+    }
+.testimonial__photo {
+        border-radius: 80px; /* round image */
+        overflow: hidden;
+        width: 160px; /* 1 */
+        height: 160px; /*  1 */
+        margin: 0 auto -80px auto; /* 3 */
+        position: relative;
+        top: -80px; /* 2 */
+        border: 6px solid rgba(255, 255, 255, .8);
+    }
+.testimonial__title {
+        color: #2f5572;
+        text-align: center;
+        font-size: 1.5rem;
+        font-weight: 500;
+        margin: 0;
+    }
+.testimonial__subtitle {
+        color: #d59541;
+        text-align: center;
+        font-weight: 400;
+        font-size: 0.9375rem;
+        margin: .25rem 0 1rem 0;
+    }
+/*
+1.Width and height of an image inside this div 
+2. Pulls image 80px high
+3.Negative bottom margin pulls text up, because we used relative position on the image
+*/
