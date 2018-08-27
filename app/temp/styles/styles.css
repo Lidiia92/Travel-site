@@ -390,14 +390,22 @@ Border-box: Width and height values apply to the content, padding, and border.
         display: block;
     }
 .large-hero__text-content {
+        padding-top: 88px;
         position: absolute; /* 1 */
         top: 50%; /* 1--a */
         -webkit-transform: translateY(-50%);
                 transform: translateY(-50%); /* 1--c*/
         left: 0; /* 1--a */
         width: 100%; /* 1--b */
-        text-align: center; /* 1--b */
+        text-align: center;
     
+    }
+/* 1--b */
+@media (min-width: 800px) {
+.large-hero__text-content {
+            padding-top: 60px
+    
+    }
     }
 .large-hero__title{
         font-weight: 300;
@@ -948,5 +956,206 @@ So when we say size is 1.5rem, browser will take font-size of html and multiply 
             display: inline;
             margin-bottom: 0;
             margin-right: 1.4rem
+    }
+    }
+.site-header {
+    padding: 10px 0;
+    position: absolute; /* 1 */
+    width: 100%;
+    z-index: 2;
+    -webkit-transition: background-color .3s ease-out;
+    transition: background-color .3s ease-out;
+}
+.site-header--is-expanded {
+        background-color: rgba(47,85,114, .55);
+    }
+@media (min-width: 800px) {
+.site-header {
+        background-color: rgba(47,85,114, .3)
+}
+    }
+@media (min-width: 800px) {
+.site-header__btn-container{
+            float: right
+    }
+    }
+.site-header__logo {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        -webkit-transform: translateX(-50%) scale(.8);
+                transform: translateX(-50%) scale(.8); /* logo is centered */
+        -webkit-transform-origin: 50% 0;
+                transform-origin: 50% 0; /* 2 */
+        background-color: #2f5572;
+        padding: 25px 36px;
+    }
+@media (min-width: 800px) {
+.site-header__logo {
+            left: auto;
+            -webkit-transform: translateX(0);
+                    transform: translateX(0)
+    }
+    }
+.site-header__logo__graphic {
+        text-indent: -9999px; /* hided the text behind the logo */
+    }
+.site-header__menu-icon {
+        width: 20px;
+        height: 19px;
+        position: absolute;
+        z-index: 10;
+        top: 10px;
+        right: 10px;
+    }
+.site-header__menu-icon::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 20px;
+            height: 3px;
+            background-color: #FFF;
+            -webkit-transform-origin: 0 0;
+                    transform-origin: 0 0; /* pivot point of rotating bar is top left corner */
+            -webkit-transition: -webkit-transform .3s ease-out;
+            transition: -webkit-transform .3s ease-out;
+            transition: transform .3s ease-out;
+            transition: transform .3s ease-out, -webkit-transform .3s ease-out;
+        }
+.site-header__menu-icon__middle {
+            position: absolute;
+            top: 8px;
+            left: 0;
+            width: 20px;
+            height: 3px;
+            background-color: #FFF;
+            -webkit-transition: all .3s ease-out;
+            transition: all .3s ease-out;
+            -webkit-transform-origin: 0 50%;
+                    transform-origin: 0 50%;
+        }
+.site-header__menu-icon::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 20px;
+            height: 3px;
+            background-color: #FFF;
+            -webkit-transform-origin: 0 100%;
+                    transform-origin: 0 100%; /* pivot point is in the bottom left corner */
+            -webkit-transition: -webkit-transform .3s ease-out;
+            transition: -webkit-transform .3s ease-out;
+            transition: transform .3s ease-out;
+            transition: transform .3s ease-out, -webkit-transform .3s ease-out;
+        }
+@media (min-width: 800px) {
+.site-header__menu-icon {
+            display: none
+    }
+    }
+.site-header__menu-icon--close-x::before {
+            -webkit-transform: rotate(45deg) scaleX(1.25);
+                    transform: rotate(45deg) scaleX(1.25);
+        }
+.site-header__menu-icon--close-x .site-header__menu-icon__middle {
+            opacity: 0;
+            -webkit-transform: scaleX(0);
+                    transform: scaleX(0);
+        }
+.site-header__menu-icon--close-x::after {
+            -webkit-transform: rotate(-45deg) scaleX(1.25) translateY(1px);
+                    transform: rotate(-45deg) scaleX(1.25) translateY(1px);
+        }
+.site-header__menu-content {
+        opacity: 0;
+        -webkit-transform: scale(1.2);
+                transform: scale(1.2);
+        -webkit-transition: all .3s ease-out;
+        transition: all .3s ease-out;
+        position: relative; /* otherwise browser wont agnowledge our z-index value */
+        z-index: -10; /* 3 */
+        padding-top: 90px;
+        text-align: center;
+    }
+@media (min-width: 800px) {
+.site-header__menu-content {
+            opacity: 1;
+            z-index: 1;
+            padding-top: 0;
+            -webkit-transform: scale(1);
+                    transform: scale(1)
+    }
+    }
+.site-header__menu-content--is-visible {
+            opacity: 1;
+            z-index: 1;
+            -webkit-transform: scale(1);
+                    transform: scale(1);
+        }
+/*
+1. Absolute: the element is removed from the flow of the document and other elements will behave as if it’s not even there whilst all the other positional properties will work on it.
+2.By default the picture will be scaled around its original center, we set Y value to y, so its centered around top, that way we dont have a gap on top of the picture
+3.Content is invisible but still can be clicked on, so we hide it with a z-index.
+
+*/
+.primary-nav {
+    padding-top: 10px;
+}
+@media (min-width: 800px) {
+.primary-nav {
+        padding-top: 0
+}
+    }
+@media (min-width: 800px) {
+.primary-nav--pull-right {
+            float: right
+    }
+    }
+.primary-nav ul {
+        margin: 0;
+        padding: 0;
+    }
+.primary-nav ul::after { /* 1 */
+        content: "";
+        clear: both;
+        display: table;
+    }
+.primary-nav li {
+        list-style: none; /* no bullets */
+        padding-right: 7px;
+        display: inline-block;
+    }
+/* links will be horizontally centered */
+@media (min-width: 800px) {
+.primary-nav li {
+            padding-right: 20px;
+            float: left;
+            display: block
+    }
+    }
+.primary-nav li:last-child {
+        padding-right: 0;
+    }
+@media (min-width: 800px) {
+.primary-nav li:last-child {
+            padding-right: 20px
+    }
+    }
+.primary-nav a {
+        color: #FFF;
+        font-weight: 300;
+        text-decoration: none;
+        display: block;
+        padding: 5px 8px;
+        font-size: .8rem;
+        background-color: rgba(47,85,114, .5);
+    }
+@media (min-width: 800px) {
+.primary-nav a {
+            font-size: 1rem;
+            padding: 12px 0;
+            background-color: transparent
     }
     } 

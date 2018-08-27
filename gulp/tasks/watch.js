@@ -31,6 +31,11 @@ gulp.task('watch', function(){
     watch('./app/assets/styles/**/*.css', function(){
         gulp.start('cssInject');
     });
+    
+    //Any changes to our js files
+    watch('./app/assets/scripts/**/*.js', function() {
+        gulp.start('scriptsRefresh'); 
+    });
 });
 
 /* 1.We are creating a new task, which will inject our the latest css changes to our page, without refreshing the browser 
@@ -41,4 +46,8 @@ gulp.task('watch', function(){
 gulp.task('cssInject', ['styles'], function(){
     return gulp.src('./app/temp/styles/styles.css')
         .pipe(browserSync.stream());
+});
+
+gulp.task('scriptsRefresh', ['scripts'], function() {
+    browserSync.reload();
 });

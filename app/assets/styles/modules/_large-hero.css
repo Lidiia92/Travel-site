@@ -7,12 +7,17 @@
     }
     
     &__text-content {
+        padding-top: 88px;
         position: absolute; /* 1 */
         top: 50%; /* 1--a */
         transform: translateY(-50%); /* 1--c*/
         left: 0; /* 1--a */
         width: 100%; /* 1--b */
         text-align: center; /* 1--b */
+        
+        @mixin atMedium {
+            padding-top: 60px;
+        }
     
     }
     

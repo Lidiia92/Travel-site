@@ -1,0 +1,138 @@
+.site-header {
+    padding: 10px 0;
+    position: absolute; /* 1 */
+    width: 100%;
+    z-index: 2;
+    transition: background-color .3s ease-out;
+    
+    &--is-expanded {
+        background-color: rgba($mainBlue, .55);
+    }
+    
+    
+    @mixin atMedium {
+        background-color: rgba($mainBlue, .3);
+    }
+    
+    
+    &__btn-container{
+        @mixin atMedium {
+            float: right;
+        }
+    }
+    
+    &__logo {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%) scale(.8); /* logo is centered */
+        transform-origin: 50% 0; /* 2 */
+        background-color: $mainBlue;
+        padding: 25px 36px;
+        
+        @mixin atMedium {
+            left: auto;
+            transform: translateX(0);
+        }
+    }
+    
+    &__logo__graphic {
+        text-indent: -9999px; /* hided the text behind the logo */
+    }
+    
+    &__menu-icon {
+        width: 20px;
+        height: 19px;
+        position: absolute;
+        z-index: 10;
+        top: 10px;
+        right: 10px;
+        
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 20px;
+            height: 3px;
+            background-color: #FFF;
+            transform-origin: 0 0; /* pivot point of rotating bar is top left corner */
+            transition: transform .3s ease-out;
+        }
+        
+        &__middle {
+            position: absolute;
+            top: 8px;
+            left: 0;
+            width: 20px;
+            height: 3px;
+            background-color: #FFF;
+            transition: all .3s ease-out;
+            transform-origin: 0 50%;
+        }
+        
+        &::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 20px;
+            height: 3px;
+            background-color: #FFF;
+            transform-origin: 0 100%; /* pivot point is in the bottom left corner */
+            transition: transform .3s ease-out;
+        }
+        
+        @mixin atMedium {
+            display: none;
+        }
+    }
+    
+    &__menu-icon--close-x {
+        &::before {
+            transform: rotate(45deg) scaleX(1.25);
+        }
+        
+        .site-header__menu-icon__middle {
+            opacity: 0;
+            transform: scaleX(0);
+        }
+        
+        &::after {
+            transform: rotate(-45deg) scaleX(1.25) translateY(1px);
+        }
+    }
+    
+    &__menu-content {
+        opacity: 0;
+        transform: scale(1.2);
+        transition: all .3s ease-out;
+        position: relative; /* otherwise browser wont agnowledge our z-index value */
+        z-index: -10; /* 3 */
+        padding-top: 90px;
+        text-align: center;
+        
+        @mixin atMedium {
+            opacity: 1;
+            z-index: 1;
+            padding-top: 0;
+            transform: scale(1);
+        }
+        
+        &--is-visible {
+            opacity: 1;
+            z-index: 1;
+            transform: scale(1);
+        }
+    }
+}
+
+
+/*
+1. Absolute: the element is removed from the flow of the document and other elements will behave as if it’s not even there whilst all the other positional properties will work on it.
+2.By default the picture will be scaled around its original center, we set Y value to y, so its centered around top, that way we dont have a gap on top of the picture
+3.Content is invisible but still can be clicked on, so we hide it with a z-index.
+
+*/
+
+
