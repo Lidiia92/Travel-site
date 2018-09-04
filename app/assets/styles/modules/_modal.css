@@ -1,0 +1,48 @@
+.modal {
+    position: fixed;
+    z-index: 5;
+    background-color: rgba(255, 255, 255, .94);
+    top: 0;  /* will take the full width and height of the  browser */
+    bottom: 0; /* will take the full width and height of the  browser */
+    left: 0; /* will take the full width and height of the browser */
+    right: 0; /* will take the full width and height of the  browser */
+    opacity: 0; /* hidden on a page load */
+    visibility: hidden; /* hidden on a page load */
+    transform: scale(1.2);
+    transition: all .3s ease-out;
+    
+    &--is-visible {
+        opacity: 1;
+        visibility: visible;
+        transform: scale(1);
+    }
+    
+    &__inner {
+        position: absolute; /* vertically centered content */
+        width: 100%; /* vertically centered content */
+        top: 50%; /* vertically centered content */
+        transform: translateY(-50%); /* vertically centered content */
+    }
+    
+    &__description {
+        text-align: center;
+        font-size: 1.3rem;
+        font-weight: 300;
+        line-height: 1.65;
+    }
+    
+    &__close {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        font-size: 2rem;
+        transform: scaleX(1.2);
+        transform-origin: 100% 0; /* top right corner */
+        color: $mainBlue;
+        cursor: pointer;
+        
+        &:hover {
+            color: $mainOrange;
+        }
+    }
+}

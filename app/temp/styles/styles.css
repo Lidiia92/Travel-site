@@ -502,6 +502,9 @@ So when we say size is 1.5rem, browser will take font-size of html and multiply 
 .wrapper--medium {
         max-width: 976px;
     }
+.wrapper--narrow {
+        max-width: 470px;
+    }
 .wrapper--no-padding-until-medium {
         padding-left: 0;
         padding-right: 0;
@@ -775,6 +778,10 @@ So when we say size is 1.5rem, browser will take font-size of html and multiply 
     }
 .section-title--blue {
         color: #2f5572;
+    }
+.section-title--less-margin {
+        margin-bottom: 1.3rem;
+        margin-top: 0;
     }
 .section-title__icon {
         display: block;
@@ -1189,4 +1196,84 @@ So when we say size is 1.5rem, browser will take font-size of html and multiply 
         opacity: 1;
         -webkit-transform: scale(1);
                 transform: scale(1);
-    } 
+    }
+.modal {
+    position: fixed;
+    z-index: 5;
+    background-color: rgba(255, 255, 255, .94);
+    top: 0;  /* will take the full width and height of the  browser */
+    bottom: 0; /* will take the full width and height of the  browser */
+    left: 0; /* will take the full width and height of the browser */
+    right: 0; /* will take the full width and height of the  browser */
+    opacity: 0; /* hidden on a page load */
+    visibility: hidden; /* hidden on a page load */
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+    -webkit-transition: all .3s ease-out;
+    transition: all .3s ease-out;
+}
+.modal--is-visible {
+        opacity: 1;
+        visibility: visible;
+        -webkit-transform: scale(1);
+                transform: scale(1);
+    }
+.modal__inner {
+        position: absolute; /* vertically centered content */
+        width: 100%; /* vertically centered content */
+        top: 50%; /* vertically centered content */
+        -webkit-transform: translateY(-50%);
+                transform: translateY(-50%); /* vertically centered content */
+    }
+.modal__description {
+        text-align: center;
+        font-size: 1.3rem;
+        font-weight: 300;
+        line-height: 1.65;
+    }
+.modal__close {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        font-size: 2rem;
+        -webkit-transform: scaleX(1.2);
+                transform: scaleX(1.2);
+        -webkit-transform-origin: 100% 0;
+                transform-origin: 100% 0; /* top right corner */
+        color: #2f5572;
+        cursor: pointer;
+    }
+.modal__close:hover {
+            color: #d59541;
+        }
+.social-icons {
+    text-align: center;
+}
+.social-icons__icon {
+        background-color: #d59541;
+        display: inline-block;
+        margin: 0 5px 5px 5px;
+        width: 33%;
+        height: 72px;
+        position: relative;
+    }
+/* because we are making child positioned absolute, we are telling its parent to be positioned relative */
+@media (min-width: 530px) {
+.social-icons__icon {
+          width: 72px;
+          margin: 0 5px
+    }
+    }
+.social-icons__icon .icon {
+            display: block;
+            position: absolute; /* centered */
+            top: 50%; /* centered */
+            left: 50%; /* centered */
+            -webkit-transform: translate(-50%, -50%);
+                    transform: translate(-50%, -50%); /* centered */ /* 1 */
+        }
+/* 
+
+1. Pull it back up half of its own height and push it back left half of its own width 
+
+*/ 
