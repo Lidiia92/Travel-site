@@ -576,10 +576,10 @@ So when we say size is 1.5rem, browser will take font-size of html and multiply 
         background-color: #e0e6ef;
     }
 @media (min-width: 1010px) {
-.page-section--testimonials {
-            background: url('/assets/images/testimonials-bg.jpg') top center no-repeat; /* 1 */
-            background-size: cover /* 2 */
-    }
+            .page-section--testimonials.lazyloaded {
+                background: url('/assets/images/testimonials-bg.jpg') top center no-repeat; /* 1 */
+                background-size: cover; /* 2 */
+            }
     }
 /*
 1. Position of the image.
