@@ -13,7 +13,7 @@ class StickyHeader {
         this.headerLinks = $('.primary-nav a');
         this.createPageSectionWaypoints();
         this.addSmoothScrolling();
-        this.refreshWaypoints();
+        this.refreshWaypoints(); 
         
     }
     
@@ -66,7 +66,7 @@ class StickyHeader {
                         $(matchingHeaderLink).addClass('is-current-link');
                     }
                 },
-                /* 5 */
+                /* 5 **/
                 offset: '-40%'
             });
         });

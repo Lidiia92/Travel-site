@@ -16,7 +16,7 @@ john.greet();
 
 var jane = new Adult('Jane Doe', 'orange');
 jane.greet();
-jane.payTaxes();
+jane.payTaxes();;
 
 */
 
