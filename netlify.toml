@@ -1,0 +1,10 @@
+[Settings]
+ID = "a6d67107-c9ce-4992-82e4-009b721db3c7" # Settings in the [build] context are global and are applied to all contexts unless otherwise overridden by more specific contexts.  
+
+[build]
+  # This is the directory to change to before starting a build.
+  base  = "app/" # NOTE: This is where we will look for package.json/.nvmrc/etc, not root.
+  # This is the directory that you are publishing from (relative to root of your repo)
+  publish = "app/build/"
+  # This will be your default build command
+  command = "yarn build"
